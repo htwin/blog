@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.blog.mapper.BlogTypeMapper">
+	<select id="getTypeList" resultType="BlogType">
+		select * from tb_blogtype;
+	</select>
+	<select id="getBlogTypeByTypeId" parameterType="Integer" resultType="BlogType">
+		select * from tb_blogtype where typeId = #{typeId}
+	</select>
+</mapper>

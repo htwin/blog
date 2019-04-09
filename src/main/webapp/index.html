@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html language="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>黄通个人网站</title>
+<link rel="stylesheet" href="css/blog.css" />
+<link rel="stylesheet" href="css/bootstrap.min.css" />
+<script type="text/javascript" src="js/jquery/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="js/bootstrap/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/angularJS/angular.min.js"></script>
+<script type="text/javascript" src="js/base.js"></script>
+<script type="text/javascript" src="js/service/blogService.js"></script>
+<script type="text/javascript" src="js/service/blogTypeService.js"></script>
+<script type="text/javascript" src="js/controller/blogController.js"></script>
+</head>
+ 
+<body ng-app="blog" ng-controller="blogController" ng-init="findBlogList(1,4)">
+	<!--head 头部  -->
+	<iframe FRAMEBORDER=0 src=head.html scrolling="no" height="280px"
+		width="100%"></iframe>
+	<div class="container">
+		<!--内容区-->
+		<div class="row">
+			<div class="span8">
+				<!--面包屑-->
+				<div class="row">
+					<div class="span8">
+						<ul class="breadcrumb">
+							<li><a href="index.html" target="_top">首页</a> <span
+								class="divider">/</span></li>
+							<li class="active">{{blogType.typeName}}</li>
+						</ul>
+					</div>
+				</div>
+				<!-- 内容 -->
+				<ul class="list-group">
+					<li class="list-group-item" style="margin-top: 10px;" ng-repeat="entity in blogList">
+						<div class="content">
+							<p>
+								<a href="content.html#?blogId={{entity.blogId}}" target="_top"
+									class="title">{{entity.title}}</a>
+							</p>
+							<div class="row" style="height: 100px;">
+								<div class="span5">
+									<p>
+										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{entity.introduction}}
+									</p>
+								</div>
+								<div class="span2">
+									<img class="img-polaroid" ng-if="entity.pic==null" src="img/cont1.png" width="135px"
+										height="85px" />
+										<img class="img-polaroid" ng-if="entity.pic!=null" src="{{entity.pic}}" width="135px"
+										height="85px" />
+								</div>
+
+							</div>
+							<div>
+								<span>浏览 {{entity.clicknum}}</span> <span>评论
+									{{entity.replynum}}</span> <span>时间 {{entity.createdate}}</span>
+							</div>
+						</div>
+					</li>
+
+
+
+
+				</ul>
+
+				<!--分页-->
+				<div class="pagination" align="center">
+					<ul id="pageList">
+						 <li ng-class="{disabled:currentPage==1}" ng-click="findBlogList(currentPage-1<=0?currentPage:currentPage-1,4)"><a href="#">《</a></li>
+						<li ng-repeat="page in pageList" class="page==currentPage?active:''" ><a href="#" ng-click="findBlogList(page,4)" >{{page}}</a></li>
+						<li ng-class="{disabled:currentPage==pageNum}" ng-click="findBlogList(currentPage+1>pageNum?currentPage:currentPage+1,4)"><a href="#">》</a></li>
+					</ul>
+				</div> 
+				<!-- 分页 -->
+			</div>
+
+			
+			
+			<iframe FRAMEBORDER=0 src=content_right.html scrolling="no"
+				width="300px" height="1000px"></iframe>
+
+		</div>
+
+	</div>
+
+	<!--底部版权信息-->
+	<iframe FRAMEBORDER=0 src=foot.html width="100%"> </iframe>
+</body>
+</html>

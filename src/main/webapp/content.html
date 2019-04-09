@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html language="en">
+
+<head>
+<meta charset="utf-8" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>黄通个人网站</title>
+<link rel="stylesheet" href="css/blog.css" />
+<link rel="stylesheet" href="css/bootstrap.min.css" />
+<script type="text/javascript" src="js/jquery/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="js/bootstrap/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/angularJS/angular.min.js"></script>
+<script type="text/javascript" src="js/base.js"></script>
+<script type="text/javascript" src="js/service/blogService.js"></script>
+<script type="text/javascript" src="js/service/blogTypeService.js"></script>
+<script type="text/javascript" src="js/controller/blogController.js"></script>
+</head>
+
+<body ng-app="blog" ng-controller="blogController" ng-init="showContent()">
+	
+	<!--head 头部  -->
+	<iframe FRAMEBORDER=0 src=head.html scrolling="no" height="280px"
+		width="100%"></iframe>
+	
+	<div class="container">
+		<!--内容区-->
+		<div class="row">
+			<div class="span8" id="content">
+				
+			</div>
+			
+			<!--页面右部分，博主信息，分类，小应用  -->
+			<iframe FRAMEBORDER=0 src=content_right.html scrolling="no" width="300px" height=1000px></iframe>
+		</div>
+
+	</div>
+	<div class="container">
+		<!--底部版权信息-->
+		<iframe FRAMEBORDER=0 src=foot.html width="100%"> </iframe>
+	</div>
+	
+</body>
+
+</html>
